@@ -1,0 +1,23 @@
+{
+  "name": "leaflet-choropleth",
+  "version": "1.0.0",
+  "description": "",
+  "main": "choropleth.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "leaflet",
+    "choropleth"
+  ],
+  "author": "timwis",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^1.12.3"
+  },
+  "dependencies": {
+    "chroma-js": "^1.1.1",
+    "leaflet": "^0.7.7",
+    "underscore": "^1.8.3"
+  }
+}
