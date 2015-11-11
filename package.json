@@ -13,6 +13,9 @@
   "author": "timwis",
   "license": "MIT",
   "devDependencies": {
+    "mocha": "^2.3.3",
+    "proxyquire": "^1.7.3",
+    "should": "^7.1.1",
     "webpack": "^1.12.3"
   },
   "dependencies": {
