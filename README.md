@@ -1,7 +1,7 @@
 # Leaflet Choropleth
 Choropleth plugin for Leaflet (color scale based on value) - [Demo](http://timwis.com/leaflet-choropleth/demo)
 
-![screenshot](http://i.imgur.com/5DXlLG8l.jpg)
+[![screenshot](http://i.imgur.com/5DXlLG8l.jpg)](http://timwis.com/leaflet-choropleth/demo)
 
 This plugin extends `L.geoJson`, giving each feature a `style.fillColor` that corresponds to a specified value 
 in its `properties` object. For information on how to use `L.geoJson`, see the Leaflet 
