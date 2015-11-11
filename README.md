@@ -1,7 +1,7 @@
 # Leaflet Choropleth
 Choropleth plugin for Leaflet (color scale based on value). **Work in Progress**
 
-This plugin extends `L.geoJson`. ([demo](http://rawgit.com/timwis/leaflet-choropleth/master/demo/index.html))
+This plugin extends `L.geoJson`. ([demo](http://timwis.com/leaflet-choropleth/demo))
 
 ## Example Usage
 ```javascript
