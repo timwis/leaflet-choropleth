@@ -1,6 +1,6 @@
 {
   "name": "leaflet-choropleth",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Choropleth plugin for Leaflet (color scale based on value)",
   "main": "src/choropleth.js",
   "scripts": {
