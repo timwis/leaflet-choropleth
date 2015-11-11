@@ -1,5 +1,5 @@
 # Leaflet Choropleth
-Choropleth plugin for Leaflet (color scale based on value) - [Demo](http://timwis.com/leaflet-choropleth/demo)
+Choropleth plugin for Leaflet (color scale based on value) - [Demo](http://timwis.com/leaflet-choropleth/examples)
 
 [![screenshot](http://i.imgur.com/5DXlLG8l.jpg)](http://timwis.com/leaflet-choropleth/demo)
 
@@ -47,5 +47,6 @@ require('leaflet-choropleth')
 ```
 
 ## Examples
-* [Basic usage](https://github.com/timwis/leaflet-choropleth/blob/gh-pages/demo/demo.js)
-* [Advanced usage](https://github.com/timwis/leaflet-choropleth/blob/gh-pages/demo/advanced/demo.js) (fetch geojson and data file via AJAX and join them on common property)
+* [Basic usage](https://github.com/timwis/leaflet-choropleth/blob/gh-pages/examples/basic/demo.js)
+* [Legend](https://github.com/timwis/leaflet-choropleth/blob/gh-pages/examples/legend/demo.js)
+* [Advanced usage](https://github.com/timwis/leaflet-choropleth/blob/gh-pages/examples/advanced/demo.js) (fetch geojson and data file via AJAX and join them on common property)
