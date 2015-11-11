@@ -1,16 +1,23 @@
 {
   "name": "leaflet-choropleth",
   "version": "1.0.0",
-  "description": "",
-  "main": "choropleth.js",
+  "description": "Choropleth plugin for Leaflet (color scale based on value)",
+  "main": "src/choropleth.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack -p",
+    "watch": "webpack --watch"
   },
   "keywords": [
     "leaflet",
-    "choropleth"
+    "choropleth",
+    "chloropleth"
   ],
-  "author": "timwis",
+  "author": "timwis <tim@timwis.com>",
+  "homepage": "https://github.com/timwis/leaflet-choropleth",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/timwis/leaflet-choropleth.git"
+  },
   "license": "MIT",
   "devDependencies": {
     "webpack": "^1.12.3"
