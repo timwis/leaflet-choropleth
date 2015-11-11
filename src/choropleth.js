@@ -52,6 +52,8 @@ L.choropleth = module.exports = function(geojson, opts) {
 				default:
 					return style
 			}
-		}
+		},
+		limits: limits,
+		colors: colors
 	}))
 }
