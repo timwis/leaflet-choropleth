@@ -18,6 +18,6 @@
   "dependencies": {
     "chroma-js": "^1.1.1",
     "leaflet": "^0.7.7",
-    "underscore": "^1.8.3"
+    "lodash": "^3.10.1"
   }
 }

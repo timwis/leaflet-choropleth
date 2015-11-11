@@ -1,6 +1,9 @@
 var L = require('leaflet')
-var _ = require('underscore')
 var chroma = require('chroma-js')
+var _ = {
+	defaults: require('lodash/object/defaults'),
+	extend: require('lodash/object/extend')
+}
 
 L.choropleth = module.exports = function(geojson, opts) {
 	// Set default options in case any weren't passed

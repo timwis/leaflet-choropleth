@@ -1,6 +1,3 @@
-var L = require('leaflet')
-var choropleth = require('../choropleth')
-
 var map = L.map('map').setView([39.95, -75.1667], 11)
 
 // Add basemap
