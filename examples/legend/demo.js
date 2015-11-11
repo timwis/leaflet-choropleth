@@ -23,7 +23,7 @@ $.getJSON('../basic/crimes_by_district.geojson', function(geojson) {
 		}
 	}).addTo(map)
 	
-	// Add legend
+	// Add legend (don't forget to add the CSS from index.html)
 	var legend = L.control({position: 'bottomright'})
 	legend.onAdd = function(map) {
 		var div = L.DomUtil.create('div', 'info legend')
