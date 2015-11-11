@@ -9267,21 +9267,6 @@
 /* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/**
-	 * Example Usage:
-	 * 
-	 *	L.choropleth(geojson, {
-	 *		valueProperty: 'value',
-	 *		scale: ['white', 'red'],
-	 *		steps: 5,
-	 *		mode: 'q',
-	 *		style: {
-	 *			color: '#fff',
-	 *			weight: 2,
-	 *			fillOpacity: 0.8
-	 *		}
-	 *	}).addTo(map)
-	 */
 	var L = __webpack_require__(1)
 	var _ = __webpack_require__(3)
 	var chroma = __webpack_require__(4)
@@ -9295,29 +9280,43 @@
 			mode: 'q'
 		})
 		
+		// Save what the user passed as the style property for later use (since we're overriding it)
+		var userStyle = opts.style
+		
 		// Calculate limits
 		var values = geojson.features.map(function(item) {
 			return item.properties[opts.valueProperty]
 		})
 		var limits = chroma.limits(values, opts.mode, opts.steps - 1)
 		
-		// Create color scale
-		var scale = chroma.scale(opts.scale).colors(opts.steps)
+		// Create color buckets
+		var colors = opts.colors || chroma.scale(opts.scale).colors(opts.steps)
 		
-		console.log(limits, scale)
-		
-		// TODO: Make style work better with _.extend() to provide default L.geoJson styling functionality (object or function)
 		return L.geoJson(geojson, _.extend(opts, {
 			style: function(feature) {
+				var style = {}
+				
 				if(feature.properties[opts.valueProperty]) {
-					var style = {}
+					// Find the bucket/step/limit that this value is less than and give it that color
 					for(var i = 0; i < limits.length; i++) {
 						if(feature.properties[opts.valueProperty] <= limits[i]) {
-							style.fillColor = scale[i]
+							style.fillColor = colors[i]
 							break
 						}
 					}
-					return style
+				}
+				
+				// Return this style, but include the user-defined style if it was passed
+				// (this could be a one-liner ? : conditional but it would decrease readability too much)
+				switch(typeof userStyle) {
+					case 'function':
+						return _.extend(userStyle(), style)
+						break
+					case 'object':
+						return _.extend(userStyle, style)
+						break
+					default:
+						return style
 				}
 			}
 		}))
