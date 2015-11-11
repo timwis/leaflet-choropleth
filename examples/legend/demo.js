@@ -7,7 +7,7 @@ L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
 }).addTo(map)
 
 // Add GeoJSON
-$.getJSON('../crimes_by_district.geojson', function(geojson) {	
+$.getJSON('../basic/crimes_by_district.geojson', function(geojson) {	
 	var choroplethLayer = L.choropleth(geojson, {
 		valueProperty: 'incidents',
 		scale: ['white', 'red'],
