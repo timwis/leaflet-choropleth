@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Leaflet Choropleth</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css">
+		<style type="text/css">
+		.legend {
+			color: #555;
+			padding: 6px 8px;
+			font: 12px Arial, Helvetica, sans-serif;
+			font-weight: bold;
+			background: white;
+			background: rgba(255,255,255,0.8);
+			box-shadow: 0 0 15px rgba(0,0,0,0.2);
+			border-radius: 5px;
+		}
+		.legend ul {
+			list-style-type: none;
+			padding: 0;
+			margin: 0;
+			clear: both;
+		}
+		.legend li {
+			display: inline-block;
+			width: 30px;
+			height: 22px;
+		}
+		.legend .min {
+			float: left;
+			padding-bottom: 5px;
+		}
+		.legend .max {
+			float: right;
+		}
+		</style>
+	</head>
+	<body>
+		<div id="map" style="height: 600px"></div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
+		<script src="../../dist/choropleth.js"></script>
+		<script src="demo.js"></script>
+	</body>
+</html>
