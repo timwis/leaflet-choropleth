@@ -19,14 +19,16 @@ $.when(
 	var geojson = responseGeojson[0]
 	
 	// Create hash table for easy reference
-	var dataHash = {}
-	data.forEach(function(item) {
-		if(item.label) dataHash[item.label] = item.value
-	})
+	var dataHash = data.reduce(function(hash, item) {
+		if(item.label) {
+			hash[item.label] = isNaN(item.value) ? null : +item.value
+		}
+		return hash
+	}, {})
 	
 	// Add value from hash table to geojson properties
 	geojson.features.forEach(function(item) {
-		item.properties.incidents = +dataHash[item.properties._feature_id] || null 
+		item.properties.incidents = dataHash[item.properties._feature_id] || null 
 	})
 	
 	L.choropleth(geojson, {
