@@ -5,7 +5,8 @@
   "main": "src/choropleth.js",
   "scripts": {
     "build": "webpack -p",
-    "watch": "webpack --watch"
+    "watch": "webpack --watch",
+    "lint": "standard src | snazzy"
   },
   "keywords": [
     "leaflet",
@@ -20,6 +21,8 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "snazzy": "^2.0.1",
+    "standard": "^5.4.1",
     "webpack": "^1.12.3"
   },
   "dependencies": {

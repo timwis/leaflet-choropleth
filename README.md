@@ -1,4 +1,6 @@
 # Leaflet Choropleth
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
+
 Choropleth plugin for Leaflet (color scale based on value) - [Demo](http://timwis.com/leaflet-choropleth/examples/basic)
 
 [![screenshot](http://i.imgur.com/5DXlLG8l.jpg)](http://timwis.com/leaflet-choropleth/examples/basic)
