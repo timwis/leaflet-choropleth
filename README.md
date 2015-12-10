@@ -49,4 +49,9 @@ require('leaflet-choropleth')
 ## Examples
 * [Basic usage](https://github.com/timwis/leaflet-choropleth/blob/gh-pages/examples/basic/demo.js)
 * [Legend](https://github.com/timwis/leaflet-choropleth/blob/gh-pages/examples/legend/demo.js)
-* [Advanced usage](https://github.com/timwis/leaflet-choropleth/blob/gh-pages/examples/advanced/demo.js) (fetch geojson and data file via AJAX and join them on common property)
+* [Advanced usage](https://github.com/timwis/leaflet-choropleth/blob/gh-pages/examples/advanced/demo.js) 
+(fetch geojson and data file via AJAX and join them on common property)
+
+## Development
+Use `webpack` to compile `src/` to `dist/`. During development, `webpack --watch` will automatically
+rebuild. Before committing `dist/`, use `webpack -p` to optimize and minify for production use.
