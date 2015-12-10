@@ -55,5 +55,9 @@ require('leaflet-choropleth')
 (fetch geojson and data file via AJAX and join them on common property)
 
 ## Development
-Use `webpack` to compile `src/` to `dist/`. During development, `webpack --watch` will automatically
-rebuild. Before committing `dist/`, use `webpack -p` to optimize and minify for production use.
+This application uses [webpack](http://webpack.github.io/) to build the JavaScript and 
+[standard](https://github.com/feross/standard) for code style linting.
+
+* While developing, use `npm run watch` to automatically rebuild when files are saved
+* Use `npm run lint` to verify code style consistency
+* Before committing `dist/`, use `npm run build` to optimize and minify for production use
