@@ -6,6 +6,8 @@ var _ = {
 }
 
 L.choropleth = module.exports = function (geojson, opts) {
+  opts = opts || {}
+
   // Set default options in case any weren't passed
   _.defaults(opts, {
     valueProperty: 'value',
@@ -27,6 +29,8 @@ L.choropleth = module.exports = function (geojson, opts) {
   var colors = opts.colors || chroma.scale(opts.scale).colors(opts.steps)
 
   return L.geoJson(geojson, _.extend(opts, {
+    limits: limits,
+    colors: colors,
     style: function (feature) {
       var style = {}
 
@@ -41,7 +45,6 @@ L.choropleth = module.exports = function (geojson, opts) {
       }
 
       // Return this style, but include the user-defined style if it was passed
-      // (this could be a one-liner ? : conditional but it would decrease readability too much)
       switch (typeof userStyle) {
         case 'function':
           return _.extend(userStyle(), style)
@@ -50,8 +53,6 @@ L.choropleth = module.exports = function (geojson, opts) {
         default:
           return style
       }
-    },
-    limits: limits,
-    colors: colors
+    }
   }))
 }
