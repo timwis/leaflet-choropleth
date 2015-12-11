@@ -13,7 +13,7 @@ describe('basic usage', function () {
     this.layer = this.choropleth(geojson, {
       valueProperty: 'incidents'
     })
-    console.log(require('util').inspect(this.layer.options, {colors: true, depth: 2}))
+    // console.log(require('util').inspect(this.layer.options, {colors: true, depth: 2}))
   })
 
   it('returns a layer', function () {
@@ -56,7 +56,7 @@ describe('valueProperty function', function () {
         return feature.properties.incidents
       }
     })
-    console.log(require('util').inspect(this.layer.options, {colors: true, depth: 2}))
+    // console.log(require('util').inspect(this.layer.options, {colors: true, depth: 2}))
   })
 
   it('sets limits', function () {
