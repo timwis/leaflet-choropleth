@@ -6,6 +6,8 @@ var _ = {
 }
 
 L.choropleth = module.exports = function (geojson, opts) {
+  opts = opts || {}
+
   // Set default options in case any weren't passed
   _.defaults(opts, {
     valueProperty: 'value',
@@ -19,7 +21,11 @@ L.choropleth = module.exports = function (geojson, opts) {
 
   // Calculate limits
   var values = geojson.features.map(function (item) {
-    return item.properties[opts.valueProperty]
+    if (typeof opts.valueProperty === 'function') {
+      return opts.valueProperty(item)
+    } else {
+      return item.properties[opts.valueProperty]
+    }
   })
   var limits = chroma.limits(values, opts.mode, opts.steps - 1)
 
@@ -27,13 +33,22 @@ L.choropleth = module.exports = function (geojson, opts) {
   var colors = opts.colors || chroma.scale(opts.scale).colors(opts.steps)
 
   return L.geoJson(geojson, _.extend(opts, {
+    limits: limits,
+    colors: colors,
     style: function (feature) {
       var style = {}
+      var featureValue
 
-      if (!isNaN(feature.properties[opts.valueProperty])) {
+      if (typeof opts.valueProperty === 'function') {
+        featureValue = opts.valueProperty(feature)
+      } else {
+        featureValue = feature.properties[opts.valueProperty]
+      }
+
+      if (!isNaN(featureValue)) {
         // Find the bucket/step/limit that this value is less than and give it that color
         for (var i = 0; i < limits.length; i++) {
-          if (feature.properties[opts.valueProperty] <= limits[i]) {
+          if (featureValue <= limits[i]) {
             style.fillColor = colors[i]
             break
           }
@@ -41,7 +56,6 @@ L.choropleth = module.exports = function (geojson, opts) {
       }
 
       // Return this style, but include the user-defined style if it was passed
-      // (this could be a one-liner ? : conditional but it would decrease readability too much)
       switch (typeof userStyle) {
         case 'function':
           return _.extend(userStyle(), style)
@@ -50,8 +64,6 @@ L.choropleth = module.exports = function (geojson, opts) {
         default:
           return style
       }
-    },
-    limits: limits,
-    colors: colors
+    }
   }))
 }
