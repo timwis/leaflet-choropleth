@@ -21,7 +21,11 @@ L.choropleth = module.exports = function (geojson, opts) {
 
   // Calculate limits
   var values = geojson.features.map(function (item) {
-    return item.properties[opts.valueProperty]
+    if (typeof opts.valueProperty === 'function') {
+      return opts.valueProperty(item)
+    } else {
+      return item.properties[opts.valueProperty]
+    }
   })
   var limits = chroma.limits(values, opts.mode, opts.steps - 1)
 
@@ -33,11 +37,18 @@ L.choropleth = module.exports = function (geojson, opts) {
     colors: colors,
     style: function (feature) {
       var style = {}
+      var featureValue
 
-      if (!isNaN(feature.properties[opts.valueProperty])) {
+      if (typeof opts.valueProperty === 'function') {
+        featureValue = opts.valueProperty(feature)
+      } else {
+        featureValue = feature.properties[opts.valueProperty]
+      }
+
+      if (!isNaN(featureValue)) {
         // Find the bucket/step/limit that this value is less than and give it that color
         for (var i = 0; i < limits.length; i++) {
-          if (feature.properties[opts.valueProperty] <= limits[i]) {
+          if (featureValue <= limits[i]) {
             style.fillColor = colors[i]
             break
           }
