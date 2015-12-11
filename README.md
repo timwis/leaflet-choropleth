@@ -34,7 +34,7 @@ L.choropleth(geojsonData, {
 * **colors**: If you prefer to specify your own exact colors, use `colors: ['#fff', '#777', ...]` instead of `scale`.
 Just make sure the number of colors is the same as the number of `steps` specified.
 * **valueProperty**: To use computed values (such as [standardizing](http://axismaps.github.io/thematic-cartography/articles/standardize.html)),
-you can use a function for `valueProperty` that is passed `(feature)` and returns a number. 
+you can use a function for `valueProperty` that is passed `(feature)` and returns a number ([example](examples/computed_values/demo.js)).
 
 ## Installation
 * via NPM: `npm install leaflet-choropleth`
