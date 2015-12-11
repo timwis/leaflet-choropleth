@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack -p",
     "watch": "webpack --watch",
-    "lint": "standard src | snazzy"
+    "lint": "standard src | snazzy",
+    "test": "mocha test"
   },
   "keywords": [
     "leaflet",
@@ -21,6 +22,10 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "jsdom": "^7.2.0",
+    "mocha": "^2.3.4",
+    "mocha-jsdom": "^1.0.0",
+    "should": "^8.0.0",
     "snazzy": "^2.0.1",
     "standard": "^5.4.1",
     "webpack": "^1.12.3"
