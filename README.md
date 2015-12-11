@@ -62,6 +62,5 @@ This project uses [webpack](http://webpack.github.io/) to build the JavaScript a
 [standard](https://github.com/feross/standard) for code style linting.
 
 * While developing, use `npm run watch` to automatically rebuild when files are saved
-* Use `npm run lint` to verify code style consistency
-* Use `npm test` to run unit tests
+* Use `npm test` to run unit tests and code style linter
 * Before committing `dist/`, use `npm run build` to optimize and minify for production use
