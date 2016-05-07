@@ -1,6 +1,4 @@
-# Leaflet Choropleth
-[![Build Status](https://travis-ci.org/timwis/leaflet-choropleth.svg?branch=gh-pages)](https://travis-ci.org/timwis/leaflet-choropleth)
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
+# Leaflet Choropleth [![Build Status](https://travis-ci.org/timwis/leaflet-choropleth.svg?branch=gh-pages)](https://travis-ci.org/timwis/leaflet-choropleth) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
 [![NPM](https://nodei.co/npm/leaflet-choropleth.png?compact=true)](https://nodei.co/npm/leaflet-choropleth/)
 
