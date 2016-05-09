@@ -11,6 +11,7 @@ L.choropleth = module.exports = function (geojson, opts) {
   // Set default options in case any weren't passed
   _.defaults(opts, {
     valueProperty: 'value',
+    colorProperty: 'value',
     scale: ['white', 'red'],
     steps: 5,
     mode: 'q'
@@ -46,13 +47,20 @@ L.choropleth = module.exports = function (geojson, opts) {
       }
 
       if (!isNaN(featureValue)) {
+        var colorValue;
         // Find the bucket/step/limit that this value is less than and give it that color
-        for (var i = 0; i < limits.length; i++) {
-          if (featureValue <= limits[i]) {
-            style.fillColor = colors[i]
-            break
+        if (typeof opts.colorProperty === 'function') {
+          // ALLOW a user to override the color assigning function entirely, this is important / useful when the range may be logrithmic, or "inconsistent"
+          colorValue = opts.colorProperty(featureValue)
+        } else {
+          for (var i = 0; i < limits.length; i++) {
+            if (featureValue <= limits[i]) {
+              colorValue =  colors[i];
+              break
+            }
           }
         }
+        style.fillColor = colorValue;
       }
 
       // Return this style, but include the user-defined style if it was passed
