@@ -5,7 +5,14 @@ var _ = {
   extend: require('lodash/object/extend')
 }
 
+var topojson = require("topojson");
+
 L.choropleth = module.exports = function (geojson, opts) {
+  if (geojson.type === "Topology") {
+  	for (key in geojson.objects) {
+  		geojson = topojson.feature(geojson, geojson.objects[key]);
+  	}
+  }
   opts = opts || {}
 
   // Set default options in case any weren't passed
