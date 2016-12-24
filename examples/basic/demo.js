@@ -19,7 +19,8 @@ $.getJSON('./crimes_by_district.geojson', function (geojson) {
       fillOpacity: 0.8
     },
     onEachFeature: function (feature, layer) {
-      layer.bindPopup('District ' + feature.properties.dist_num + '<br>' + feature.properties.incidents.toLocaleString() + ' incidents')
+      layer.bindPopup('District ' + feature.properties.dist_num + '<br>' +
+          feature.properties.incidents.toLocaleString() + ' incidents')
     }
   }).addTo(map)
 })
