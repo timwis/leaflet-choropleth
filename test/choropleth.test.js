@@ -10,7 +10,9 @@ describe('basic usage', function () {
 
   before(function () {
     this.choropleth = require('../src/choropleth')
+    this.style = {fillColor: 'lime'}
     this.layer = this.choropleth(geojson, {
+      style: this.style,
       valueProperty: 'incidents'
     })
     // console.log(require('util').inspect(this.layer.options, {colors: true, depth: 2}))
@@ -43,6 +45,10 @@ describe('basic usage', function () {
   it('sets the color of a feature', function () {
     var style = this.layer.options.style(geojson.features[0])
     style.should.have.property('fillColor', '#ffbfbf')
+  })
+
+  it("doesn't modify style object", function () {
+    this.style.should.be.eql({fillColor: 'lime'})
   })
 })
 

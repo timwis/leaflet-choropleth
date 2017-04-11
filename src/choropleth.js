@@ -58,9 +58,9 @@ L.choropleth = module.exports = function (geojson, opts) {
       // Return this style, but include the user-defined style if it was passed
       switch (typeof userStyle) {
         case 'function':
-          return _.extend(userStyle(), style)
+          return _.defaults(style, userStyle(feature))
         case 'object':
-          return _.extend(userStyle, style)
+          return _.defaults(style, userStyle)
         default:
           return style
       }
