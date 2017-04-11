@@ -21,23 +21,19 @@ describe('basic usage', function () {
   })
 
   it('sets limits', function () {
-    this.layer.options.should.have.property('limits', [
-      814,
-      18597.5,
-      26984,
-      36140.5,
-      45529
-    ])
+    this.layer.options.should.have.property('limits')
+    var limits = this.layer.options.limits
+    limits.should.have.length(5)
+    limits[0].should.be.equal(814)
+    limits[4].should.be.equal(45529)
   })
 
   it('sets colors', function () {
-    this.layer.options.should.have.property('colors', [
-      '#ffffff',
-      '#ffbfbf',
-      '#ff7f7f',
-      '#ff3f3f',
-      '#ff0000'
-    ])
+    this.layer.options.should.have.property('colors')
+    var colors = this.layer.options.colors
+    colors.should.have.length(5)
+    colors[0].should.be.equal('#ffffff')
+    colors[4].should.be.equal('#ff0000')
   })
 
   it('sets the color of a feature', function () {
@@ -60,13 +56,11 @@ describe('valueProperty function', function () {
   })
 
   it('sets limits', function () {
-    this.layer.options.limits.should.eql([
-      814,
-      18597.5,
-      26984,
-      36140.5,
-      45529
-    ])
+    this.layer.options.should.have.property('limits')
+    var limits = this.layer.options.limits
+    limits.should.have.length(5)
+    limits[0].should.be.equal(814)
+    limits[4].should.be.equal(45529)
   })
 
   it('sets the color of a feature', function () {
