@@ -23,9 +23,9 @@ describe('basic usage', function () {
   it('sets limits', function () {
     this.layer.options.should.have.property('limits', [
       814,
-      18597.5,
-      26984,
-      36140.5,
+      18491.75,
+      26202,
+      34832.25,
       45529
     ])
   })
@@ -34,8 +34,8 @@ describe('basic usage', function () {
     this.layer.options.should.have.property('colors', [
       '#ffffff',
       '#ffbfbf',
-      '#ff7f7f',
-      '#ff3f3f',
+      '#ff8080',
+      '#ff4040',
       '#ff0000'
     ])
   })
@@ -62,9 +62,9 @@ describe('valueProperty function', function () {
   it('sets limits', function () {
     this.layer.options.limits.should.eql([
       814,
-      18597.5,
-      26984,
-      36140.5,
+      18491.75,
+      26202,
+      34832.25,
       45529
     ])
   })
