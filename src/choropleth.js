@@ -1,9 +1,6 @@
 var L = require('leaflet')
 var chroma = require('chroma-js')
-var _ = {
-  defaults: require('lodash/object/defaults'),
-  extend: require('lodash/object/extend')
-}
+var _ = require('lodash/object')
 
 L.choropleth = module.exports = function (geojson, opts) {
   opts = opts || {}
