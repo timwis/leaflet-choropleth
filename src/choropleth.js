@@ -20,17 +20,18 @@ L.choropleth = module.exports = function (geojson, opts) {
   var userStyle = opts.style
 
   // Calculate limits
-  var values = geojson.features.map(function (item) {
-    if (typeof opts.valueProperty === 'function') {
-      return opts.valueProperty(item)
-    } else {
+  var values = geojson.features.map(
+    typeof opts.valueProperty === 'function' ?
+    opts.valueProperty :
+    function (item) {
       return item.properties[opts.valueProperty]
-    }
-  })
+    })
   var limits = chroma.limits(values, opts.mode, opts.steps - 1)
 
   // Create color buckets
-  var colors = opts.colors || chroma.scale(opts.scale).colors(opts.steps)
+  var colors = (opts.colors && opts.colors.length === limits.length ?
+                opts.colors :
+                chroma.scale(opts.scale).colors(limits.length))
 
   return L.geoJson(geojson, _.extend(opts, {
     limits: limits,
