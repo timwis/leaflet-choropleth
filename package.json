@@ -27,11 +27,11 @@
     "should": "^8.0.0",
     "snazzy": "^2.0.1",
     "standard": "^5.4.1",
-    "webpack": "^1.12.3"
+    "webpack": "^2.5.1"
   },
   "dependencies": {
     "chroma-js": "^1.1.1",
     "leaflet": "^1.0.2",
-    "lodash": "^3.10.1"
+    "lodash": "^4.17.4"
   }
 }
