@@ -41,7 +41,7 @@ you can use a function for `valueProperty` that is passed `(feature)` and return
 * via NPM: `npm install leaflet-choropleth`
 * via Bower: `bower install leaflet-choropleth`
 
-Include `dist/choropleth.js` on your page after Leaflet:
+Include `dist/choropleth.js` from this repository on your page after Leaflet:
 ```html
 <script src="path/to/leaflet.js"></script>
 <script src="path/to/choropleth.js"></script>
