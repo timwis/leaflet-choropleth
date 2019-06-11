@@ -47,7 +47,7 @@ L.choropleth = module.exports = function (geojson, opts) {
         featureValue = feature.properties[opts.valueProperty]
       }
 
-      if (!isNaN(featureValue)) {
+      if (featureValue) {
         // Find the bucket/step/limit that this value is less than and give it that color
         for (var i = 0; i < opts.limits.length; i++) {
           if (featureValue <= opts.limits[i]) {
