@@ -16,22 +16,26 @@ L.choropleth = module.exports = function (geojson, opts) {
   // Save what the user passed as the style property for later use (since we're overriding it)
   var userStyle = opts.style
 
-  // Calculate limits
-  var values = geojson.features.map(
-    typeof opts.valueProperty === 'function' ?
-    opts.valueProperty :
-    function (item) {
-      return item.properties[opts.valueProperty]
-    })
-  var limits = chroma.limits(values, opts.mode, opts.steps - 1)
+  if (opts.limits == null) {
+    // Calculate limits
+    var values = geojson.features.map(
+      typeof opts.valueProperty === 'function' ?
+      opts.valueProperty :
+      function (item) {
+        return item.properties[opts.valueProperty]
+      })
+    opts.limits = chroma.limits(values, opts.mode, opts.steps - 1)
+  }
+
+  console.log(opts.limits)
 
   // Create color buckets
-  var colors = (opts.colors && opts.colors.length === limits.length ?
+  var colors = (opts.colors && opts.colors.length === opts.limits.length ?
                 opts.colors :
-                chroma.scale(opts.scale).colors(limits.length))
+                chroma.scale(opts.scale).colors(opts.limits.length))
 
   return L.geoJson(geojson, _.extend(opts, {
-    limits: limits,
+    limits: opts.limits,
     colors: colors,
     style: function (feature) {
       var style = {}
@@ -45,8 +49,8 @@ L.choropleth = module.exports = function (geojson, opts) {
 
       if (!isNaN(featureValue)) {
         // Find the bucket/step/limit that this value is less than and give it that color
-        for (var i = 0; i < limits.length; i++) {
-          if (featureValue <= limits[i]) {
+        for (var i = 0; i < opts.limits.length; i++) {
+          if (featureValue <= opts.limits[i]) {
             style.fillColor = colors[i]
             break
           }
